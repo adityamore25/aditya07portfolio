@@ -218,6 +218,56 @@ All colors MUST be HSL.
   .portfolio-card {
     @apply bg-card border border-border/50 rounded-xl overflow-hidden hover:shadow-elegant transition-all duration-300 hover:scale-[1.02];
   }
+
+  /* Modern glassmorphism effects */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl;
+  }
+
+  .glass-card-dark {
+    @apply bg-black/10 backdrop-blur-xl border border-black/20 rounded-2xl shadow-2xl;
+  }
+
+  /* Floating animations */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--cyan) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--cyan) / 0.6);
+    }
+  }
+
+  /* Modern gradient backgrounds */
+  .hero-bg-modern {
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%,
+      hsl(var(--navy) / 0.03) 25%,
+      hsl(var(--cyan) / 0.05) 50%,
+      hsl(var(--background)) 100%
+    );
+  }
 }
 
 @layer utilities {
