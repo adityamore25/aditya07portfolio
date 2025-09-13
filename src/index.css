@@ -171,6 +171,8 @@ All colors MUST be HSL.
 @layer components {
   .hero-gradient {
     background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
   }
   
   .text-gradient {
@@ -194,6 +196,27 @@ All colors MUST be HSL.
   
   .container-custom {
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Geometric shapes */
+  .geometric-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--navy)/0.1), hsl(var(--cyan)/0.1));
+  }
+
+  .geometric-dots {
+    background-image: radial-gradient(hsl(var(--navy)/0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Enhanced cards */
+  .expertise-card {
+    @apply bg-card border border-border/50 rounded-xl p-6 hover:shadow-elegant transition-all duration-300 hover:border-navy/30;
+  }
+
+  .portfolio-card {
+    @apply bg-card border border-border/50 rounded-xl overflow-hidden hover:shadow-elegant transition-all duration-300 hover:scale-[1.02];
   }
 }
 

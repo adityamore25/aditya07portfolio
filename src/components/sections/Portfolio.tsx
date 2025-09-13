@@ -39,183 +39,121 @@ const upcomingProjects = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="section-padding bg-neutral-50/50">
-      <div className="container-custom">
+    <section id="portfolio" className="section-padding bg-navy text-white relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan/10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 geometric-dots opacity-20"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient mb-4">
-              Portfolio
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my projects and the technologies I've worked with
-            </p>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16">
+            <div className="lg:max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+                Selected <span className="text-cyan">Portfolio</span>
+              </h2>
+              <p className="text-lg text-white/80 leading-relaxed">
+                Showcasing my latest projects and technical achievements in web development
+              </p>
+            </div>
+            
+            <div className="mt-6 lg:mt-0">
+              <Button 
+                variant="outline" 
+                className="border-cyan text-cyan hover:bg-cyan hover:text-navy transition-all duration-300"
+              >
+                View All Projects
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
           </div>
 
-          {/* Featured Projects */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-display font-semibold mb-8 flex items-center">
-              <Code className="mr-3 h-6 w-6 text-navy" />
-              Featured Projects
-            </h3>
-            
-            <div className="grid lg:grid-cols-1 gap-8">
-              {projects.map((project, index) => (
-                <Card key={index} className="overflow-hidden shadow-elegant hover:shadow-glow/10 transition-all duration-500 border-border/50">
-                  <div className="lg:flex">
-                    {/* Project Image */}
-                    <div className="lg:w-2/5">
-                      <div className="h-64 lg:h-full bg-gradient-to-br from-navy/10 to-cyan/10 flex items-center justify-center relative overflow-hidden">
-                        <div className="text-center">
-                          <Palette className="h-16 w-16 text-navy/30 mx-auto mb-4" />
-                          <p className="text-sm text-muted-foreground">Project Screenshot</p>
-                        </div>
-                        {/* Overlay with project category */}
-                        <div className="absolute top-4 left-4">
-                          <Badge variant="secondary" className="bg-white/90 text-navy">
-                            {project.category}
-                          </Badge>
-                        </div>
-                        <div className="absolute top-4 right-4">
-                          <Badge 
-                            variant="outline" 
-                            className="bg-green-50 text-green-700 border-green-200"
-                          >
-                            {project.status}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Project Details */}
-                    <div className="lg:w-3/5">
-                      <CardHeader>
-                        <CardTitle className="text-2xl font-display font-semibold">
-                          {project.title}
-                        </CardTitle>
-                        <CardDescription className="text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardContent>
-                        {/* Features */}
-                        <div className="mb-6">
-                          <h4 className="font-semibold mb-3">Key Features:</h4>
-                          <ul className="space-y-2">
-                            {project.features.map((feature, featureIndex) => (
-                              <li key={featureIndex} className="flex items-start text-sm text-muted-foreground">
-                                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-navy to-cyan mt-2 mr-3 flex-shrink-0"></div>
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Technologies */}
-                        <div className="mb-6">
-                          <h4 className="font-semibold mb-3">Technologies:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, techIndex) => (
-                              <Badge 
-                                key={techIndex}
-                                variant="outline"
-                                className="border-cyan/30 text-cyan-600 hover:bg-cyan/10 transition-colors duration-200"
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-3">
-                          <Button
-                            variant="outline"
-                            onClick={() => window.open(project.githubUrl, "_blank")}
-                            className="flex-1 border-border/50 hover:border-navy/50 hover:bg-navy/5"
-                          >
-                            <Github className="mr-2 h-4 w-4" />
-                            View Code
-                          </Button>
-                          <Button
-                            onClick={() => window.open(project.liveUrl, "_blank")}
-                            className="flex-1 bg-gradient-to-r from-navy to-cyan hover:from-navy/90 hover:to-cyan/90 text-white"
-                          >
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            Live Demo
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </div>
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div 
+                key={index} 
+                className="portfolio-card group bg-white hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
+              >
+                <div className="aspect-video bg-gradient-to-br from-navy/10 to-cyan/10 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Code className="h-12 w-12 text-navy/50 group-hover:text-cyan group-hover:scale-110 transition-all duration-300" />
                   </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Upcoming Projects */}
-          <div>
-            <h3 className="text-2xl font-display font-semibold mb-8 flex items-center">
-              <Palette className="mr-3 h-6 w-6 text-cyan" />
-              Upcoming Projects
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {upcomingProjects.map((project, index) => (
-                <Card key={index} className="border-dashed border-2 border-border/50 hover:border-navy/30 transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <CardTitle className="text-lg font-display font-semibold">
-                        {project.title}
-                      </CardTitle>
+                  
+                  {/* Project category badge */}
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-cyan text-navy font-medium">
+                      Web Development
+                    </Badge>
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="font-semibold text-xl mb-2 text-navy group-hover:text-cyan transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, 4).map((tech, techIndex) => (
                       <Badge 
-                        variant="outline" 
-                        className={`
-                          ${project.status === 'In Planning' 
-                            ? 'bg-orange-50 text-orange-700 border-orange-200' 
-                            : 'bg-blue-50 text-blue-700 border-blue-200'
-                          }
-                        `}
+                        key={techIndex} 
+                        variant="secondary" 
+                        className="text-xs bg-navy/10 text-navy border-navy/20"
                       >
-                        {project.status}
+                        {tech}
                       </Badge>
-                    </div>
-                    <CardDescription className="text-muted-foreground">
-                      {project.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge 
-                          key={techIndex}
-                          variant="secondary"
-                          className="bg-muted/50 text-muted-foreground"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <Badge 
+                        variant="secondary" 
+                        className="text-xs bg-cyan/10 text-cyan border-cyan/20"
+                      >
+                        +{project.technologies.length - 4} more
+                      </Badge>
+                    )}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1 border-navy/30 text-navy hover:border-navy hover:bg-navy hover:text-white transition-all duration-300"
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      Code
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-gradient-to-r from-navy to-cyan hover:from-navy/90 hover:to-cyan/90 text-white"
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Demo
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-12 bg-gradient-to-r from-navy/5 to-cyan/5 rounded-2xl p-8 border border-navy/10">
+          <div className="text-center mt-12 bg-white/10 rounded-2xl p-8 border border-cyan/20">
             <h3 className="text-2xl font-display font-semibold mb-4">
               Interested in collaborating?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+            <p className="text-white/80 mb-6 max-w-md mx-auto">
               I'm always excited to work on new projects and challenges
             </p>
             <Button 
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               size="lg"
-              className="bg-gradient-to-r from-navy to-cyan hover:from-navy/90 hover:to-cyan/90 text-white shadow-elegant hover:shadow-glow transition-all duration-300"
+              className="bg-cyan hover:bg-cyan/90 text-navy font-semibold shadow-elegant hover:shadow-glow transition-all duration-300"
             >
               Let's Discuss Your Project
             </Button>

@@ -1,137 +1,127 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Code, 
-  Palette, 
-  Server, 
+  Globe, 
   Database, 
-  Wrench, 
-  Shield 
+  Server, 
+  GitBranch, 
+  Shield,
+  Target,
+  Share2
 } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Languages",
+    name: "Languages",
     icon: Code,
-    skills: ["Java", "Python", "JavaScript"],
-    color: "from-blue-500 to-purple-600"
+    skills: ["Java", "Python", "JavaScript"]
   },
   {
-    title: "Frontend",
-    icon: Palette,
-    skills: ["HTML", "CSS", "React.js", "Bootstrap"],
-    color: "from-pink-500 to-rose-600"
+    name: "Frontend",
+    icon: Globe,
+    skills: ["HTML", "CSS", "React.js", "Bootstrap"]
   },
   {
-    title: "Backend",
+    name: "Backend",
     icon: Server,
-    skills: ["Node.js", "Express.js"],
-    color: "from-green-500 to-emerald-600"
+    skills: ["Node.js", "Express.js"]
   },
   {
-    title: "Databases",
+    name: "Databases",
     icon: Database,
-    skills: ["SQL", "MongoDB"],
-    color: "from-orange-500 to-amber-600"
+    skills: ["SQL", "MongoDB"]
   },
   {
-    title: "Tools",
-    icon: Wrench,
-    skills: ["Git", "GitHub", "Postman"],
-    color: "from-cyan-500 to-blue-600"
+    name: "Tools",
+    icon: GitBranch,
+    skills: ["Git", "GitHub", "Postman"]
   },
   {
-    title: "Authentication",
+    name: "Authentication",
     icon: Shield,
-    skills: ["JWT"],
-    color: "from-violet-500 to-purple-600"
+    skills: ["JWT"]
   }
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="section-padding bg-neutral-50/50">
-      <div className="container-custom">
+    <section id="skills" className="section-padding bg-card/30 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-navy/5 rounded-full"></div>
+        <div className="absolute bottom-10 left-10 w-24 h-24 bg-cyan/5 rounded-full"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient mb-4">
-              Skills & Technologies
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive overview of my technical skills and the tools I use to build amazing solutions
-            </p>
-          </div>
-
-          {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((category, index) => {
-              const IconComponent = category.icon;
-              return (
-                <Card 
-                  key={index} 
-                  className="relative group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-border/50 hover:border-navy/30"
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg bg-gradient-to-br ${category.color}`}>
-                        <IconComponent className="h-5 w-5 text-white" />
-                      </div>
-                      <CardTitle className="text-lg font-display font-semibold">
-                        {category.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <Badge 
-                          key={skillIndex}
-                          variant="secondary"
-                          className="bg-card hover:bg-navy/10 hover:text-navy hover:border-navy/30 transition-all duration-200 cursor-default"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-
-                  {/* Hover effect gradient border */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-navy/20 to-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Skills Progress Section */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-display font-semibold text-center mb-8">
-              Proficiency Levels
-            </h3>
-            
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {[
-                { skill: "React.js", level: 85 },
-                { skill: "JavaScript", level: 80 },
-                { skill: "Node.js", level: 75 },
-                { skill: "MongoDB", level: 70 },
-                { skill: "Express.js", level: 75 },
-                { skill: "Git/GitHub", level: 85 }
-              ].map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
-                    <span>{item.skill}</span>
-                    <span className="text-muted-foreground">{item.level}%</span>
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
+            {/* Left side - Skills header */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+                <span className="text-gradient">Skills</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Proficient in modern technologies and frameworks for full-stack development
+              </p>
+              
+              {/* Expertise highlights */}
+              <div className="space-y-4">
+                <div className="expertise-card">
+                  <div className="flex items-center mb-3">
+                    <Target className="h-6 w-6 text-navy mr-3" />
+                    <h3 className="font-semibold">Full Stack Development</h3>
                   </div>
-                  <div className="w-full bg-neutral-200 rounded-full h-2">
-                    <div 
-                      className="h-2 rounded-full bg-gradient-to-r from-navy to-cyan transition-all duration-1000 ease-out"
-                      style={{ width: `${item.level}%` }}
-                    ></div>
-                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    End-to-end web application development with modern technologies
+                  </p>
                 </div>
-              ))}
+                
+                <div className="expertise-card">
+                  <div className="flex items-center mb-3">
+                    <Share2 className="h-6 w-6 text-cyan mr-3" />
+                    <h3 className="font-semibold">API Integration</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    RESTful API design and seamless third-party integrations
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side - Skills grid */}
+            <div className="lg:col-span-2">
+              {/* Skills Grid */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {skillCategories.map((category, index) => (
+                  <Card 
+                    key={index} 
+                    className="group border-navy/20 hover:border-navy/40 hover:shadow-elegant transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-navy/10 to-cyan/10 rounded-lg mb-4 group-hover:from-navy/20 group-hover:to-cyan/20 transition-all duration-300">
+                        <category.icon className="h-6 w-6 text-navy group-hover:text-cyan transition-colors duration-300" />
+                      </div>
+                      
+                      <h3 className="font-semibold text-lg mb-3 group-hover:text-navy transition-colors duration-300">
+                        {category.name}
+                      </h3>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill, skillIndex) => (
+                          <Badge 
+                            key={skillIndex} 
+                            variant="secondary" 
+                            className="text-xs bg-navy/5 text-navy hover:bg-navy/10 transition-colors duration-200"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>
