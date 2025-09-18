@@ -186,7 +186,7 @@ export function Hero() {
                   <img 
                     src={profilePhoto} 
                     alt="Aditya Bharat More - Profile Picture" 
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover object-top rounded-full"
                   />
                 </div>
               </div>
