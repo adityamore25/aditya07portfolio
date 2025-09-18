@@ -14,52 +14,10 @@ export function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center hero-bg-modern relative overflow-hidden">
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large gradient orbs */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] bg-gradient-to-br from-navy/20 to-cyan/30 rounded-full blur-3xl opacity-60 float-animation"></div>
-        <div className="absolute -bottom-40 -left-40 w-60 h-60 md:w-80 md:h-80 bg-gradient-to-tr from-cyan/20 to-navy/20 rounded-full blur-3xl opacity-40 float-delayed"></div>
-        
-        {/* Floating geometric elements */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-navy/30 rounded-full float-animation"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-cyan/40 rotate-45 float-delayed"></div>
-        <div className="absolute bottom-32 left-1/4 w-6 h-6 border-2 border-navy/20 rounded-full float-animation"></div>
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-cyan/50 rotate-45 float-delayed"></div>
-        
-        {/* Enhanced dot patterns */}
-        <div className="absolute top-0 left-0 w-32 h-32 geometric-dots opacity-20 float-animation"></div>
-        <div className="absolute bottom-0 right-0 w-40 h-40 geometric-dots opacity-15 float-delayed"></div>
-      </div>
-
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Enhanced Left side - Text content with floating cards */}
+          {/* Left side - Text content */}
           <div className="relative">
-            {/* Floating stats cards */}
-            <div className="absolute -top-8 -left-8 md:-top-12 md:-left-12 glass-card p-4 float-animation hidden md:block">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-navy to-cyan rounded-full flex items-center justify-center">
-                  <Code className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-navy">3+</div>
-                  <div className="text-xs text-muted-foreground">Years Experience</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -top-4 right-0 md:-top-8 md:-right-8 glass-card p-4 float-delayed hidden lg:block">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-cyan to-navy rounded-full flex items-center justify-center">
-                  <Star className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-navy">5+</div>
-                  <div className="text-xs text-muted-foreground">Technologies</div>
-                </div>
-              </div>
-            </div>
-
             {/* Main content */}
             <div className="text-left animate-fade-in mt-8 lg:mt-0">
               <div className="mb-6">
@@ -152,29 +110,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Enhanced Right side - Profile Image with modern effects */}
+          {/* Right side - Profile Image */}
           <div className="flex justify-center lg:justify-end relative">
-            {/* Floating achievement badges */}
-            <div className="absolute top-8 -left-4 lg:-left-8 glass-card p-3 float-animation z-10">
-              <div className="flex items-center space-x-2">
-                <TrendingUp className="h-5 w-5 text-navy" />
-                <div>
-                  <div className="text-sm font-bold text-navy">MERN Stack</div>
-                  <div className="text-xs text-muted-foreground">Expert</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute bottom-8 -right-4 lg:-right-8 glass-card p-3 float-delayed z-10">
-              <div className="flex items-center space-x-2">
-                <Code className="h-5 w-5 text-cyan" />
-                <div>
-                  <div className="text-sm font-bold text-navy">React.js</div>
-                  <div className="text-xs text-muted-foreground">Advanced</div>
-                </div>
-              </div>
-            </div>
-
             {/* Enhanced profile image container */}
             <div className="relative animate-scale-in">
               {/* Outer glow ring */}
@@ -196,11 +133,6 @@ export function Hero() {
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center shadow-lg animate-pulse">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
-              
-              {/* Floating decorative elements */}
-              <div className="absolute -top-6 -left-6 w-8 h-8 bg-gradient-to-br from-cyan/40 to-navy/40 rounded-full float-animation"></div>
-              <div className="absolute -bottom-4 -right-8 w-6 h-6 bg-gradient-to-br from-navy/40 to-cyan/40 rotate-45 float-delayed"></div>
-              <div className="absolute top-1/3 -left-8 w-4 h-4 border-2 border-cyan/40 rounded-full float-animation"></div>
             </div>
           </div>
         </div>
