@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Download, ExternalLink, Code, Zap, Star, TrendingUp } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 export function Hero() {
   const handleDownloadResume = () => {
@@ -182,10 +183,11 @@ export function Hero() {
               {/* Main profile container */}
               <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-navy to-cyan p-1 shadow-2xl pulse-glow">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden border-4 border-white/50">
-                  <div className="w-60 h-60 md:w-68 md:h-68 rounded-full bg-gradient-to-br from-navy/20 via-cyan/10 to-navy/20 flex items-center justify-center text-4xl md:text-5xl font-bold text-gradient relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-navy/5 to-cyan/5 rounded-full"></div>
-                    <span className="relative z-10">ABM</span>
-                  </div>
+                  <img 
+                    src={profilePhoto} 
+                    alt="Aditya Bharat More - Profile Picture" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               
