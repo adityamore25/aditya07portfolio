@@ -117,8 +117,7 @@ export function Contact() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-display font-semibold mb-6 flex items-center">
-                  <MessageCircle className="mr-3 h-6 w-6 text-navy" />
+                <h3 className="text-2xl font-display font-semibold mb-6">
                   Let's Connect
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-8">
