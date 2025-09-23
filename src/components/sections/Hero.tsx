@@ -6,8 +6,8 @@ export function Hero() {
   const handleDownloadResume = () => {
     // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Update this path to match your resume filename
-    link.download = 'Aditya_Bharat_More_Resume.pdf';
+    link.href = '/AdityaResume.pdf';
+    link.download = 'AdityaResume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
