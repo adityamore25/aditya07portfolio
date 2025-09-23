@@ -4,13 +4,21 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 
 export function Hero() {
   const handleDownloadResume = () => {
-    // Create a link element and trigger download
-    const link = document.createElement('a');
-    link.href = '/AdityaResume.pdf';
-    link.download = 'AdityaResume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Create a link element and trigger download
+      const link = document.createElement('a');
+      link.href = '/AdityaResume.pdf';
+      link.download = 'AdityaResume.pdf';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('Resume download initiated');
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      // Fallback: try opening in new tab
+      window.open('/AdityaResume.pdf', '_blank');
+    }
   };
 
   const handleContact = () => {
