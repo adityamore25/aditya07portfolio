@@ -73,27 +73,19 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Initialize EmailJS
-      emailjs.init(emailJSConfig.PUBLIC_KEY);
-      
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        emailJSConfig.SERVICE_ID,
-        emailJSConfig.TEMPLATE_ID,
+      await emailjs.send(
+        emailJSConfig.serviceID,
+        emailJSConfig.templateID,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-        }
+        },
+        emailJSConfig.publicKey
       );
-
-      console.log('EmailJS result:', result);
       
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
+      toast({ title: "Message sent!" });
       
       setFormData({
         name: "",
@@ -102,15 +94,10 @@ export function Contact() {
         message: ""
       });
     } catch (error) {
-      console.error('EmailJS error:', error);
-      toast({
-        title: "Failed to send message",
-        description: "There was an error sending your message. Please try again or contact me directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+      toast({ title: "Failed to send message" });
     }
+    
+    setIsSubmitting(false);
   };
 
   return (
