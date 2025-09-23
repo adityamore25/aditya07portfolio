@@ -16,6 +16,8 @@ import {
   CheckCircle
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
+import { emailJSConfig } from '@/config/emailjs';
 
 const contactInfo = [
   {
@@ -70,8 +72,24 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Initialize EmailJS
+      emailjs.init(emailJSConfig.PUBLIC_KEY);
+      
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        emailJSConfig.SERVICE_ID,
+        emailJSConfig.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }
+      );
+
+      console.log('EmailJS result:', result);
+      
       toast({
         title: "Message sent successfully!",
         description: "Thank you for your message. I'll get back to you soon.",
@@ -83,8 +101,16 @@ export function Contact() {
         subject: "",
         message: ""
       });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   return (
