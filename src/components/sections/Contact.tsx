@@ -9,7 +9,6 @@ import {
   Phone, 
   Github, 
   Linkedin, 
-  MapPin, 
   Send,
   MessageCircle,
   Clock,
@@ -264,20 +263,6 @@ export function Contact() {
             </Card>
           </div>
 
-          {/* Additional CTA */}
-          <div className="text-center mt-16 bg-card rounded-2xl p-8 border border-border/50 shadow-elegant">
-            <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-500/10 to-emerald-500/10 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-display font-semibold mb-2">
-                Ready to start your project?
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                Let's discuss your ideas and turn them into reality together
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
