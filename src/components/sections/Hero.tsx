@@ -7,8 +7,8 @@ export function Hero() {
     try {
       // Create a link element and trigger download
       const link = document.createElement('a');
-      link.href = '/AdityaResume.pdf';
-      link.download = 'AdityaResume.pdf';
+      link.href = '/AdityaABS.pdf';
+      link.download = 'AdityaABS.pdf';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
@@ -17,7 +17,7 @@ export function Hero() {
     } catch (error) {
       console.error('Error downloading resume:', error);
       // Fallback: try opening in new tab
-      window.open('/AdityaResume.pdf', '_blank');
+      window.open('/AdityaABS.pdf', '_blank');
     }
   };
 
