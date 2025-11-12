@@ -76,16 +76,6 @@ export function Services() {
     <section id="services" className="section-padding">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient mb-4">
-              Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive development services to bring your digital vision to life
-            </p>
-          </div>
-
           {/* Main Services */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => {
